@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service';
 import { HomePage } from '../home/home';
+import md5 from 'crypto-md5';
 
 /*
   Generated class for the Signup page.
@@ -16,9 +17,11 @@ import { HomePage } from '../home/home';
 export class SignupPage {
 
   email: string;
+  name: string;
   password: string;
   passwordConfirm: string;
   loading: any;
+  profilePicture: any = "https://www.gravatar.com/avatar/";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public authService: AuthService, public loadingCtrl: LoadingController) {}
 
@@ -39,6 +42,7 @@ export class SignupPage {
 
     let details = {
       email: this.email,
+      name: this.name,
       password: this.password
     };
 
@@ -48,5 +52,9 @@ export class SignupPage {
     }, (err) =>{
       this.loading.dismiss();
     });
+  }
+
+  emailChanged(){
+    this.profilePicture = "https://www.gravatar.com/avatar/" + md5(this.email.toLowerCase(), 'hex');
   }
 }

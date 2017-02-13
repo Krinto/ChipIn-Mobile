@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
+import md5 from 'crypto-md5';
 
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
@@ -13,6 +14,8 @@ import { AuthService } from '../providers/auth-service';
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
+
+  profilePicture: any = "https://www.gravatar.com/avatar/";
 
   rootPage: any = LoginPage;
 

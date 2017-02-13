@@ -6,21 +6,26 @@
 -->
 <ion-header>
 
-  <ion-navbar color="secondary">
+  <ion-navbar color="primary">
     <ion-title>Create Account</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-
 <ion-content padding>
-  <ion-row class="account-form">
-    <ion-col>
-    <ion-list inset>
+ 
+  <img [src]="profilePicture" class="profile-image" />
+
+  <ion-list>
 
     <ion-item>
       <ion-label><ion-icon name="mail"></ion-icon></ion-label>
-      <ion-input [(ngModel)]="email" placeholder="Email" type="email"></ion-input>
+      <ion-input [(ngModel)]="email" (change)="emailChanged()" type="email" placeholder="Email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label><ion-icon name="person"></ion-icon></ion-label>
+      <ion-input [(ngModel)]="name" type="text" placeholder="Name"></ion-input>
     </ion-item>
 
     <ion-item>
@@ -33,10 +38,8 @@
       <ion-input [(ngModel)]="passwordConfirm" placeholder="Confirm Password" type="password"></ion-input>
     </ion-item>
 
-    </ion-list>
+  </ion-list>
 
-    <button ion-button (click)="register()" class="continue-button">Register</button>
-
-    </ion-col>
-  </ion-row>
+  <button ion-button icon-right color="light" (click)="register()">Register <ion-icon name="arrow-forward"></ion-icon></button>
+ 
 </ion-content>

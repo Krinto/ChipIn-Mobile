@@ -20,7 +20,7 @@ export class LoginPage {
   email: string;
   password: string;
   loading: any;
-  profilePicture: any = "https://www.gravatar.com/avatar/"
+  profilePicture: any = "https://www.gravatar.com/avatar/";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public authService: AuthService, public loadingCtrl: LoadingController, public menuCtrl: MenuController) {
     this.menuCtrl.swipeEnable(false);

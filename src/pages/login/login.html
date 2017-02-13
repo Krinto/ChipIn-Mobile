@@ -7,36 +7,24 @@
 
 <ion-content padding>
  
-    <ion-card>
- 
-      <ion-item>
-        <ion-avatar>
-          <img [src]="profilePicture" class="profile-image" />
-        </ion-avatar>
-      </ion-item>
- 
-      <ion-card-content>
- 
-        <ion-list inset>
- 
-          <ion-item>
-            <ion-label floating><ion-icon name="person"></ion-icon> email</ion-label>
-            <ion-input [(ngModel)]="email" (change)="emailChanged()" type="email"></ion-input>
-          </ion-item>
- 
-          <ion-item>
-            <ion-label floating><ion-icon name="lock"></ion-icon> password</ion-label>
-            <ion-input [(ngModel)]="password" type="password"></ion-input>
-          </ion-item>
- 
-        </ion-list>
- 
-      </ion-card-content>
- 
-    </ion-card>
- 
-    <button ion-button icon-right color="light" (click)="login()">Login <ion-icon name="arrow-forward"></ion-icon></button>
+  <img [src]="profilePicture" class="profile-image" />
 
-    <button ion-button outline color="dark" (click)="launchSignup()" class="create-account">Create an Account</button>
+  <ion-list>
+
+    <ion-item>
+      <ion-label><ion-icon name="person"></ion-icon></ion-label>
+      <ion-input [(ngModel)]="email" (change)="emailChanged()" type="email" placeholder="Email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label><ion-icon name="lock"></ion-icon></ion-label>
+      <ion-input [(ngModel)]="password" type="password" placeholder="Password"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <button ion-button icon-right color="light" (click)="login()">Login <ion-icon name="arrow-forward"></ion-icon></button>
+
+  <button ion-button outline color="dark" (click)="launchSignup()" class="create-account">Create an Account</button>
  
 </ion-content>

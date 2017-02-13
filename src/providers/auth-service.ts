@@ -13,6 +13,7 @@ import 'rxjs/add/operator/map';
 export class AuthService {
 
 	public token: any;
+	public user: any;
 
 	constructor(public http: Http, public storage: Storage) {
 	
@@ -27,7 +28,7 @@ export class AuthService {
             	headers.append('Authorization', this.token);
 				
 				//TODO replace with base uri
-				this.http.get('http://127.0.0.1:3000/api/protected', {headers: headers})
+				this.http.get('https://safe-caverns-91945.herokuapp.com/api/protected', {headers: headers})
 					.subscribe(res => {
 						resolve(res);
 					}, (err) => {
@@ -43,10 +44,11 @@ export class AuthService {
 			headers.append('Content-Type', 'application/json');
 			
 			//TODO replace with base uri
-			this.http.post('http://127.0.0.1:3000/api/auth/register', JSON.stringify(details), { headers: headers })
+			this.http.post('https://safe-caverns-91945.herokuapp.com/api/auth/register', JSON.stringify(details), { headers: headers })
 				.subscribe(res => {
 					let data = res.json();
 					this.token = data.token;
+					this.user = data.user;
 					this.storage.set('token', data.token);
 					resolve(data);
 
@@ -63,10 +65,11 @@ export class AuthService {
 			headers.append('Content-Type', 'application/json');
 			
 			//TODO replace with base uri
-			this.http.post('http://127.0.0.1:3000/api/auth/authenticate', JSON.stringify(credentials), { headers: headers })
+			this.http.post('https://safe-caverns-91945.herokuapp.com/api/auth/authenticate', JSON.stringify(credentials), { headers: headers })
 				.subscribe(res => {
 					let data = res.json();
 					this.token = data.token;
+					this.user = data.user;
 					this.storage.set('token', data.token);
 					resolve(data);
 

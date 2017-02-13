@@ -1,27 +1,31 @@
 .ios, .md {
     page-login {
         .scroll-content {
-            background: linear-gradient(to bottom, darkorange, indianred);
+            background: linear-gradient(to bottom, mediumpurple, darkturquoise);
             align-items: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
-        ion-avatar > img {
-            margin: auto;
-            width: 80px;
-            height: auto;
+        ion-list {
+            width: 85%;
+        }
+
+        ion-item {
+            margin-top: 10px;
+            background-color: rgba(255,255,255,0.6);
+            border-radius: 4px 4px 4px 4px !important;
+            border-color: rgba(255,255,255,0);
         }
 
         ion-input {
-            background-color: map-get($colors, light);
-            padding-left: 10px;
             color: #6c6c6c;
         }
 
         ion-label {
             color: #6c6c6c;
+            padding-left: 10px;
         }
 
         [floating] {
@@ -29,7 +33,20 @@
         }
 
         button {
-            width: 95%;
+            margin-top: 10px;
+            width: 85%;
+            opacity:0.85;
+        }
+
+        .profile-image{
+            width: 100px;
+            height: auto;
+            border-radius:50%;
+            margin:10px;
+            border: 4px solid $SIDEMENU_TRANSPARENCY;
+            -webkit-box-shadow: 0px 0px 142px -37px rgba(0,0,0,0.75);
+            -moz-box-shadow: 0px 0px 142px -37px rgba(0,0,0,0.75);
+            box-shadow: 0px 0px 142px -37px rgba(0,0,0,0.75);
         }
     }
 }
