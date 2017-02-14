@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, LoadingController, MenuController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, MenuController, Events } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service';
 import { HomePage } from '../home/home';
 import { SignupPage } from '../signup/signup';
@@ -22,7 +22,7 @@ export class LoginPage {
   loading: any;
   profilePicture: any = "https://www.gravatar.com/avatar/";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public authService: AuthService, public loadingCtrl: LoadingController, public menuCtrl: MenuController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public authService: AuthService, public loadingCtrl: LoadingController, public menuCtrl: MenuController, public events: Events) {
     this.menuCtrl.swipeEnable(false);
   }
 
@@ -48,6 +48,7 @@ export class LoginPage {
     this.authService.login(credentials).then((result) => {
       this.loading.dismiss();
       this.navCtrl.setRoot(HomePage);
+      this.events.publish('logged-in');
     }, (err) => {
       this.loading.dismiss();
     });
