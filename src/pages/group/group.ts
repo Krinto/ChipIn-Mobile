@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-
-import { GroupService } from "../../providers/group-service";
+import { NavController } from 'ionic-angular';
+import { MyGroupsPage } from '../my-groups/my-groups'
+import { SearchGroupsPage } from '../search-groups/search-groups'
 
 /*
-  Generated class for the Group page.
+  Generated class for the Group tabs.
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
+  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
+  for more info on providers and Angular 2 DI.
 */
 @Component({
   selector: 'page-group',
@@ -15,10 +15,11 @@ import { GroupService } from "../../providers/group-service";
 })
 export class GroupPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public groupService: GroupService) {}
+  tab1Root: any = MyGroupsPage;
+  tab2Root: any = SearchGroupsPage;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad GroupPage');
+  constructor(public navCtrl: NavController) {
+
   }
 
 }
