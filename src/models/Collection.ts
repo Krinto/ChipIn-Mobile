@@ -15,6 +15,6 @@ export class Collection {
         this.validTo = newValid;
         this.goal = newGoal;
         this.allowCustomPrice = allowCustom;
-        this.tiers = []];
+        this.tiers = [];
     }
 }
