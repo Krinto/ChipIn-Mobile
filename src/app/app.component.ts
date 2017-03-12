@@ -6,6 +6,9 @@ import md5 from 'crypto-md5';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { HomePage } from '../pages/home/home';
+import { GroupPage } from '../pages/group/group';
+import { ProfilePage } from '../pages/profile/profile';
+
 import { AuthService } from '../providers/auth-service';
 
 
@@ -28,7 +31,9 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage }
+      { title: 'Home', component: HomePage },
+      { title: 'Groups', component: GroupPage },
+      { title: 'Profile', component: ProfilePage }
     ];
 
   }
